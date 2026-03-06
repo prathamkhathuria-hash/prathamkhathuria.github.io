@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pratham Khathuria | Author</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Poppins;
+background: radial-gradient(circle at 20% 30%, rgba(99,102,241,0.25), transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(59,130,246,0.25), transparent 40%),
+            linear-gradient(180deg,#050816,#0a0f2e,#050816);
+color:white;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+.glass{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.glow-card{
+transition:all .4s;
+}
+
+.glow-card:hover{
+box-shadow:0 0 30px rgba(96,165,250,.7);
+transform:translateY(-6px);
+}
+
+.glow-btn{
+background:linear-gradient(90deg,#3b82f6,#6366f1);
+padding:12px 28px;
+border-radius:999px;
+transition:.3s;
+}
+
+.glow-btn:hover{
+box-shadow:0 0 20px #60a5fa;
+transform:scale(1.05);
+}
+
+.book{
+transition:transform .4s;
+}
+
+.book:hover{
+transform:rotateY(12deg) rotateX(6deg) scale(1.05);
+}
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+.progress{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:#60a5fa;
+z-index:1000;
+width:0%;
+}
+
+.signature-glow{
+font-family: 'Rye', cursive;
+color:#7dd3fc;
+animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #38bdf8,0 0 20px #22d3ee;
+}
+to{
+text-shadow:0 0 20px #38bdf8,0 0 40px #6366f1;
+}
+}
+
+.yt-section{
+padding:100px 10%;
+text-align:center;
+}
+
+.section-title{
+font-size:42px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#60a5fa,#a78bfa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.section-subtitle{
+color:#9ca3af;
+margin-bottom:50px;
+}
+
+.yt-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:40px;
+}
+
+.yt-card{
+background:rgba(20,25,55,0.6);
+padding:40px;
+border-radius:18px;
+text-decoration:none;
+color:white;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.35s;
+backdrop-filter:blur(10px);
+position:relative;
+}
+
+.yt-card:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 0 30px rgba(99,102,241,0.5);
+border:1px solid rgba(139,92,246,0.5);
+}
+
+.yt-logo{
+width:80px;
+height:80px;
+margin:auto;
+margin-bottom:20px;
+border-radius:50%;
+overflow:hidden;
+box-shadow:0 0 15px rgba(96,165,250,0.6);
+}
+
+.yt-logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.yt-card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.yt-card p{
+color:#cbd5f5;
+font-size:15px;
+margin-bottom:20px;
+}
+
+.yt-button{
+display:inline-block;
+padding:10px 20px;
+border-radius:30px;
+background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="progress" id="progress"></div>
+
+<canvas id="stars"></canvas>
+
+<!-- NAVBAR -->
+
+<nav class="glass fixed top-4 left-1/2 transform -translate-x-1/2 px-8 py-3 rounded-full flex gap-8 z-50">
+
+<a href="#hero">Home</a>
+<a href="#about">About</a>
+<a href="#book">Book</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6">
+
+<img src="logo.png" class="w-40 mb-6">
+
+<h1 class="text-5xl md:text-6xl font-bold mb-4">Stories That Spark Imagination</h1>
+
+<p class="text-lg text-gray-300 mb-8">
+Author of imaginative adventures exploring curiosity, science and wonder.
+</p>
+
+<a href="#book" class="glow-btn">Explore the Book</a>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section id="about" class="reveal py-24 px-6 max-w-5xl mx-auto">
+
+<div class="glass glow-card rounded-xl p-10 text-center">
+
+<img src="author.png" class="w-40 h-40 object-cover rounded-full mx-auto mb-6">
+
+<h2 class="text-3xl mb-4">About the Author</h2>
+
+<p class="text-gray-300 leading-relaxed">
+
+Pratham Khathuria is a young storyteller based in <b>Hyderabad, Bharat</b>, passionate about imagination, curiosity and the mysteries of the universe.  
+
+He published his first book at <b>17</b>, marking the beginning of his journey as a writer exploring stories that inspire young minds and spark creativity.
+
+While his debut work introduces children to the excitement of space adventures, future stories may explore many different worlds and ideas.
+
+</p>
+
+<div class="signature mt-6">— Pratham Khathuria</div>
+
+</div>
+
+</section>
+
+
+
+<!-- BOOK -->
+
+<section id="book" class="reveal py-24 px-6 text-center">
+
+<h2 class="text-4xl mb-12">Featured Book</h2>
+
+<div class="glass glow-card max-w-xl mx-auto p-10 rounded-xl">
+
+<img src="book.png" class="book mx-auto mb-6 w-52">
+
+<h3 class="text-2xl mb-4">My Adventure in Space</h3>
+
+<p class="text-gray-300 mb-6">
+
+When a young boy is unexpectedly kidnapped by an alien, his ordinary day transforms into an extraordinary journey across outer space.  
+What follows is a thrilling adventure through the stars filled with surprises, wonder and discovery.
+
+</p>
+
+<a href="https://www.bribooks.com/bookstore/my-adventure-in-space-672653363b235/" target="_blank" class="glow-btn">
+Buy Now
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- WHY KIDS LOVE -->
+
+<section class="reveal py-24 px-6 text-center">
+
+<h2 class="text-4xl mb-12">Why Kids Love This Book</h2>
+
+<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+<div class="glass glow-card p-8 rounded-xl">
+🚀
+<h3 class="text-xl mt-4">Fun Space Adventure</h3>
+An exciting journey through the cosmos that captivates young imaginations.
+</div>
+
+<div class="glass glow-card p-8 rounded-xl">
+📖
+<h3 class="text-xl mt-4">Easy to Read</h3>
+A simple and engaging narrative that is perfect for young readers.
+</div>
+
+<div class="glass glow-card p-8 rounded-xl">
+🌌
+<h3 class="text-xl mt-4">Inspires Curiosity</h3>
+Sparks wonder about the universe and encourages exploration
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SOCIAL -->
+
+<section id="youtube" class="yt-section">
+
+<h2 class="section-title">Watch on YouTube</h2>
+<p class="section-subtitle">Ideas, experiments, and creative projects beyond the page.</p>
+
+<div class="yt-grid">
+
+<!-- NexGen Channel -->
+<a href="https://www.youtube.com/@NexGen-27" target="_blank" class="yt-card">
+    
+    <div class="yt-logo">
+        <img src="nexgen.png" alt="NexGen Channel">
+    </div>
+
+    <h3>NexGen</h3>
+
+    <p>
+    New and interesting stories spanning sci-fi, thriller, mysteries, horror, new and unknown facts, fiction, and more. A channel for curious minds who love to explore the wonders of the universe and beyond.
+    </p>
+
+    <span class="yt-button">Visit Channel →</span>
+
+</a>
+
+
+<!-- PKAura Channel -->
+<a href="https://www.youtube.com/@PKAuraOfficial" target="_blank" class="yt-card">
+
+    <div class="yt-logo">
+        <img src="pkaura.png" alt="PKAura Channel">
+    </div>
+
+    <h3>PKAura</h3>
+
+    <p>
+    PK Aura — Music that moves wherever the moment takes it.
+
+I create original songs using a mix of human creativity and AI tools.
+Every track is an exploration — atmospheric, emotional, and inspired by nature, dreams, and imagination.
+    </p>
+
+    <span class="yt-button">Visit Channel →</span>
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="reveal py-24 px-6">
+
+<div class="glass glow-card max-w-xl mx-auto p-10 rounded-xl">
+
+<h2 class="text-3xl mb-6 text-center">Get in Touch</h2>
+
+<form action="https://formspree.io/f/xaqpwdyq" method="POST" class="space-y-4">
+
+<input type="text" name="name" placeholder="Name" required class="w-full p-3 rounded bg-slate-900">
+
+<input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded bg-slate-900">
+
+<textarea name="message" placeholder="Message" required class="w-full p-3 rounded bg-slate-900"></textarea>
+
+<button type="submit" class="glow-btn w-full">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<div class="text-center mt-20 mb-6">
+<h2 class="text-2xl font-display signature-glow">
+Pratham Khathuria
+</h2>
+<h3 class="text-sm text-slate-400 mt-2">
+Hyderabad, Bharat
+</h3>
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="text-center py-12">
+
+<img src="logo.png" class="w-24 mx-auto mb-4">
+
+<p class="text-gray-400">
+© Pratham Khathuria
+</p>
+
+<p class="text-gray-500 text-sm">
+More adventures coming soon…
+</p>
+
+</footer>
+
+
+
+<script>
+
+const canvas=document.getElementById("stars")
+const ctx=canvas.getContext("2d")
+
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+let stars=[]
+
+for(let i=0;i<150;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*2
+})
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+ctx.fillStyle="white"
+
+stars.forEach(s=>{
+ctx.fillRect(s.x,s.y,s.size,s.size)
+s.y+=0.2
+if(s.y>canvas.height)s.y=0
+})
+
+requestAnimationFrame(animate)
+}
+
+animate()
+
+
+window.addEventListener("scroll",()=>{
+const scrollTop=document.documentElement.scrollTop
+const height=document.documentElement.scrollHeight-document.documentElement.clientHeight
+document.getElementById("progress").style.width=(scrollTop/height)*100+"%"
+})
+
+
+const reveals=document.querySelectorAll(".reveal")
+
+window.addEventListener("scroll",()=>{
+reveals.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add("active")
+}
+})
+})
+
+</script>
+
+</body>
+</html>
