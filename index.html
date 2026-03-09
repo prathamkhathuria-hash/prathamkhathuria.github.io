@@ -26,13 +26,7 @@
 
 body{
          <!-- test update -->   
-.subtitle span{
-font-size:35px;
-margin-bottom:15px;
-background:linear-gradient(90deg,#60a5fa,#a78bfa);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+            
 font-family:Poppins, sans-serif;
 background: radial-gradient(circle at 20% 30%, rgba(99,102,241,0.25), transparent 40%),
             radial-gradient(circle at 80% 70%, rgba(59,130,246,0.25), transparent 40%),
@@ -260,7 +254,23 @@ Pratham Khathuria
 </h1>
 
 <!-- test update -->   
-<p class="subtitle span">
+            <style>
+.animated-subtitle{
+font-size:50px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#60a5fa,#a78bfa,#60a5fa);
+background-size:200% auto;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% center;}
+100%{background-position:200% center;}
+}
+</style>
+<p class="animated-subtitle">
 Official website of Pratham Khathuria, author of imaginative stories and adventures.
 </p>
 
@@ -299,7 +309,7 @@ While his debut work introduces children to the excitement of space adventures, 
 
 
 <!-- BOOK -->
-<h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+<h2 class="animated-subtitle">
 Stories That Spark Imagination!
 </h2>
             
@@ -524,6 +534,7 @@ el.classList.add("active")
 </body>
 
 </html>
+
 
 
 
