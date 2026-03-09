@@ -26,12 +26,7 @@
 
 body{
          <!-- test update -->   
-.hero-glow{
-font-family:'Rye', cursive;
-color:#7dd3fc;
-animation: heroGlow 2.5s ease-in-out infinite alternate;
-}
-letter-spacing:3px;
+
 @keyframes heroGlow{
 from{
 text-shadow:
@@ -257,7 +252,12 @@ font-size:14px;
 
 <img src="logo.png" class="w-40 mb-6">
              <!-- test update --> 
-<h1 class="text-5xl md:text-6xl mb-2 hero-glow">
+<h1 class="text-5xl md:text-6xl mb-2"
+style="
+font-family:'Rye', cursive;
+color:#7dd3fc;
+animation: glow 3s ease-in-out infinite alternate;
+">
 Pratham Khathuria — Author
 </h1>
 <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -525,6 +525,7 @@ el.classList.add("active")
 </body>
 
 </html>
+
 
 
 
